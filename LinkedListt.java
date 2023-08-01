@@ -33,6 +33,17 @@ public class LinkedListt {
         return false;
     }
 
+    private Node getNode(int index){
+        if (index < 0 || index >= size) throw new IndexOutOfBoundsException();
+        Node currentNode = root;
+        for (int i = 0; i < index; i++) currentNode = currentNode.next;
+
+        return currentNode;
+    }
+
+
+    public int getValue(int index) {return this.getNode(index).value;}
+
     public void print() {
         Node currentNode = root;
         System.out.print("[ ");
