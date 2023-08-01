@@ -14,6 +14,25 @@ public class LinkedListt {
         size++;
     }
 
+    public boolean remove(int value){
+        if (root == null) return false;
+        if (root.value == value) {
+            root = root.next;
+            size--;
+            return true;
+        }
+        Node curentNode = root;
+        while (curentNode.next != null) {
+            if (curentNode.next.value == value) {
+                curentNode.next = curentNode.next.next;
+                size--;
+                return true;
+            }
+            curentNode = curentNode.next;
+        }
+        return false;
+    }
+
     public void print() {
         Node currentNode = root;
         System.out.print("[ ");
@@ -21,7 +40,7 @@ public class LinkedListt {
             System.out.print(currentNode.value + " ");
             currentNode = currentNode.next;
         }
-        System.out.print(" ]  size: " + size);
+        System.out.println("]  size: " + size);
     }
 
     private class Node {

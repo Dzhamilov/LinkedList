@@ -5,6 +5,8 @@ public class Main {
         list.add(5);
         list.add(4);
         list.print();
+        list.remove(4);
+        list.print();
 
         
     }
