@@ -5,7 +5,7 @@ public class Main {
         list.add(5);
         list.add(4);
         list.print();
-        list.remove(4);
+        list.swap(1, 2);
         list.print();
 
         

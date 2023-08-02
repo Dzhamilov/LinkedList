@@ -41,6 +41,22 @@ public class LinkedListt {
         return currentNode;
     }
 
+    public void swap(int index1, int index2) {
+        if (index1 == index2) return;
+        if (index1 < 0 || index1 >= size || index2 < 0 || index2 >= size) return;
+        Node currentNode = root;
+        Node node1 = null;
+        Node node2 = null;
+        for (int i = 0; currentNode != null; i++) {
+            if (i == index1) node1 = currentNode;
+            else if (i == index2) node2 = currentNode;
+            if (node2 != null && node1 != null) break;
+            currentNode = currentNode.next;
+        }
+        int temp = node1.value;
+        node1.value = node2.value;
+        node2.value = temp;
+    }
 
     public int getValue(int index) {return this.getNode(index).value;}
 
