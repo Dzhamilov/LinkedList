@@ -33,6 +33,17 @@ public class LinkedListt {
         return false;
     }
 
+    public void removeAt(int index) {
+        if (index == 0) {
+            root.next = root.next.next;
+            size--;
+            return;
+        }
+        Node prevNode = this.getNode(index - 1);
+        prevNode.next = prevNode.next.next;
+        size--;
+    }
+
     private Node getNode(int index){
         if (index < 0 || index >= size) throw new IndexOutOfBoundsException();
         Node currentNode = root;
