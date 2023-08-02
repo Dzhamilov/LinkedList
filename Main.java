@@ -3,9 +3,10 @@ public class Main {
         LinkedListt list = new LinkedListt();
         list.add(2);
         list.add(5);
+        list.add(5);
         list.add(4);
         list.print();
-        list.removeAt(1);
+        list.removeAll(5);
         list.print();
 
         

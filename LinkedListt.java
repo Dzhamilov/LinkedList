@@ -44,6 +44,24 @@ public class LinkedListt {
         size--;
     }
 
+    public int removeAll(int value) {
+        int oldSize = size;
+        if (root == null) return 0;
+        while (root != null && root.value == value) {
+            root = root.next;
+            size--;
+        }
+        Node currentNode = root;
+        while (currentNode.next != null) {
+            if (currentNode.next.value == value) {
+                currentNode.next = currentNode.next.next;
+                size--;
+            } else currentNode = currentNode.next;
+        }
+        return oldSize - size;
+    }
+
+
     private Node getNode(int index){
         if (index < 0 || index >= size) throw new IndexOutOfBoundsException();
         Node currentNode = root;
