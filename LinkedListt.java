@@ -61,6 +61,10 @@ public class LinkedListt {
         return oldSize - size;
     }
 
+    public void setValue(int index, int value) {
+        getNode(index).value = value;
+    }
+
 
     private Node getNode(int index){
         if (index < 0 || index >= size) throw new IndexOutOfBoundsException();
