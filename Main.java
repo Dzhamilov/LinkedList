@@ -6,7 +6,7 @@ public class Main {
         list.add(5);
         list.add(4);
         list.print();
-        list.removeAll(5);
+        list.quickSort();
         list.print();
 
         

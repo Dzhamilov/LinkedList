@@ -61,10 +61,7 @@ public class LinkedListt {
         return oldSize - size;
     }
 
-    public void setValue(int index, int value) {
-        getNode(index).value = value;
-    }
-
+    public void setValue(int index, int value) {getNode(index).value = value;}
 
     private Node getNode(int index){
         if (index < 0 || index >= size) throw new IndexOutOfBoundsException();
@@ -89,6 +86,27 @@ public class LinkedListt {
         int temp = node1.value;
         node1.value = node2.value;
         node2.value = temp;
+    }
+
+    public void quickSort() {
+        quickSort(0, size - 1);
+    }
+
+    private void quickSort(int leftBorder, int rightBorder) {
+        int leftMarker = leftBorder;
+        int rightMarker = rightBorder;
+        int pivot = getValue((leftMarker + rightMarker) / 2);
+        while (leftMarker <= rightMarker) {
+            while (getValue(leftMarker) < pivot) leftMarker++;
+            while (getValue(rightMarker) > pivot) rightMarker--;
+            if (leftMarker <= rightMarker) {
+                swap(leftMarker, rightMarker);
+                leftMarker++;
+                rightMarker--;
+            }
+        }
+        if (leftMarker < rightBorder) quickSort(leftMarker, rightBorder);
+        if (leftBorder < rightMarker) quickSort(leftBorder, rightMarker);
     }
 
     public int getValue(int index) {return this.getNode(index).value;}
