@@ -14,6 +14,21 @@ public class LinkedListt {
         size++;
     }
 
+    public void addAt(int index, int value) {
+        if (index == 0) {
+            Node newNode = new Node(value);
+            newNode.next = root;
+            root = newNode;
+            size++;
+            return;
+        }
+        Node prev = getNode(index - 1);
+        Node newNode = new Node(value);
+        newNode.next = prev.next;
+        prev.next = newNode;
+        size++;
+    }
+
     public boolean remove(int value){
         if (root == null) return false;
         if (root.value == value) {
