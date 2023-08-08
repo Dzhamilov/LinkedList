@@ -22,10 +22,39 @@ public class LinkedListt {
             size++;
             return;
         }
+
         Node prev = getNode(index - 1);
         Node newNode = new Node(value);
         newNode.next = prev.next;
         prev.next = newNode;
+        size++;
+    }
+
+    public void addSorted(int value) {
+        if (root == null) {
+            root = new Node(value);
+            size++;
+            return;
+        }
+        if (root.value >= value) {
+            Node newNode = new Node(value);
+            newNode.next = root;
+            root = newNode;
+            size++;
+            return;
+        }
+        Node currentNode = root;
+        while (currentNode.next != null) {
+            if (currentNode.next.value >= value) {
+                Node newNode = new Node(value);
+                newNode.next = currentNode.next;
+                currentNode.next = newNode;
+                size++;
+                return;
+            }
+            currentNode = currentNode.next;
+        }
+        currentNode.next = new Node(value);
         size++;
     }
 
